@@ -4,6 +4,7 @@
 #include "main.h"
 #include "triangleSolver.h"
 #include "rectangleSolver.h"
+#include "anglesoftriangle.h"
 
 int side = 0;
 
@@ -22,6 +23,7 @@ int main() {
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			anglesoftriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
 		case 0:
