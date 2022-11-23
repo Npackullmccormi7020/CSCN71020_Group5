@@ -3,6 +3,9 @@
 
 extern "C" char* analyzeTriangle(int side1, int side2, int side3);
 
+extern "C" char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
@@ -11,7 +14,7 @@ namespace Tests
 	{
 	public:
 		
-		TEST_METHOD(TestA1)
+		TEST_METHOD(Input_1st_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(-1, 1, 1);
@@ -20,7 +23,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(TestA2)
+		TEST_METHOD(Input_2nd_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(1, -1, 1);
@@ -29,7 +32,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(TestA3)
+		TEST_METHOD(Input_3rd_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(1, 1, -1);
@@ -38,7 +41,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(BVATestA1)
+		TEST_METHOD(BVA_Input_1st_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(0, 1, 1);
@@ -47,7 +50,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(BVATestA2)
+		TEST_METHOD(BVA_Input_2nd_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(1, 0, 1);
@@ -56,7 +59,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(BVATestA3)
+		TEST_METHOD(BVA_Input_3rd_NegTest)
 		{
 			char* result = "";
 			result = analyzeTriangle(1, 1, 0);
@@ -65,7 +68,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(TestB1)
+		TEST_METHOD(Equilateral_test)
 		{
 			char* result = "";
 			result = analyzeTriangle(2, 2, 2);
@@ -75,7 +78,7 @@ namespace Tests
 		}
 
 		
-		TEST_METHOD(TestC1)
+		TEST_METHOD(Scalene_test)
 		{
 			char* result = "";
 			result = analyzeTriangle(2, 3, 4);
@@ -84,7 +87,7 @@ namespace Tests
 			// last test: Passed! \o/
 		}
 
-		TEST_METHOD(TestD1)
+		TEST_METHOD(Side1and2_Isosceles_test)
 		{
 			char* result = "";
 			result = analyzeTriangle(2, 2, 3);
@@ -94,7 +97,7 @@ namespace Tests
 
 		}
 
-		TEST_METHOD(TestD2)
+		TEST_METHOD(Side1and3_Isosceles_test)
 		{
 			char* result = "";
 			result = analyzeTriangle(2, 3, 2);
@@ -104,7 +107,7 @@ namespace Tests
 
 		}
 
-		TEST_METHOD(TestD3)
+		TEST_METHOD(Side2and3_Isosceles_test)
 		{
 			char* result = "";
 			result = analyzeTriangle(2, 3, 3);
@@ -118,19 +121,27 @@ namespace Tests
 
 	};
 
+	TEST_CLASS(rectangleSolver)
+	{
+	public:
+
+
+		TEST_METHOD(Valid_rectangle1)
+		{
+			
+		}
+
+	};
+
 	TEST_CLASS(OtherTests)
 	{
 	public:
 
 
-		TEST_METHOD(rectanglesolver)
+		TEST_METHOD(anglesoftriangle)
 		{
 			// this functionality is being worked upon
 		}
 
-		TEST_METHOD(triangleangles)
-		{
-			// this functionality is being worked upon as well
-		}
 	};
 }
