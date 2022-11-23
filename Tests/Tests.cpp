@@ -10,7 +10,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
 {
-	TEST_CLASS(TriangleSolverTests)
+	TEST_CLASS(triangleSolver_Tests)
 	{
 	public:
 		
@@ -113,7 +113,7 @@ namespace Tests
 			result = analyzeTriangle(2, 3, 3);
 			Assert::AreEqual("Isosceles triangle", result);
 
-			// Found that one condition was missing when side2 and side3 were equal, now solved (refer triangleSolver.c)
+			// Fix (kahan) : Found that one condition was missing when side2 and side3 were equal, now solved (refer triangleSolver.c)
 			// last test: Passed! \o/
 
 		}
@@ -121,14 +121,60 @@ namespace Tests
 
 	};
 
-	TEST_CLASS(rectangleSolver)
+	TEST_CLASS(rectangleSolver_Tests)
 	{
 	public:
 
 
 		TEST_METHOD(Valid_rectangle1)
 		{
-			
+			char* result = "";
+			result = analyzeRectangle(1, 2, -1, 2, -1, -4, 1, -4);
+			Assert::AreEqual("Rectangle", result);
+			// last test: Passed! \o/
+		}
+
+		TEST_METHOD(Valid_rectangle2)
+		{
+			char* result = "";
+			result = analyzeRectangle(-27, 59, 30, 40, 19, 7, -38, 26);
+			Assert::AreEqual("Rectangle", result);
+			// last test: Passed! \o/
+		}
+
+		TEST_METHOD(Valid_rectangle3)
+		{
+			char* result = "";
+			result = analyzeRectangle(-4, 4, 0, 4, 0, 0, -4, 0);
+			Assert::AreEqual("Rectangle", result);
+			// last test: Passed! \o/
+		}
+
+		TEST_METHOD(NOTValid_rectangle1)
+		{
+			char* result = "";
+			result = analyzeRectangle(1, 2, -1, 3, -1, -4, 2, -4);
+			Assert::AreEqual("Not a Rectangle", result);
+
+
+			// last test: Fail
+
+			/* suggested fix (kahan) : Instead of keeping the "2nd if condition" (in rectangleSolver.c/ analyzeRectangle())
+			in && (AND) relation, keep it in || (OR) relation */
+		}
+
+		TEST_METHOD(NOTValid_rectangle2)
+		{
+			char* result = "";
+			result = analyzeRectangle(0, 0, 1, 0, 2, 0, 0, -1);
+			Assert::AreEqual("Not a Rectangle", result);
+
+
+			// last test: Fail
+
+			/*
+			Same as "NOTValid_rectangle2"
+			*/
 		}
 
 	};
