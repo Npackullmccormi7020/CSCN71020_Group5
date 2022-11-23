@@ -65,7 +65,7 @@ char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, i
 		result = "Rectangle";
 		return result;
 	}
-	else
+	else if ((vx1 * vx2 + vy1 * vy2) != 0 && (vx2 * vx3 + vy2 * vy3) != 0 && (vx3 * vx4 + vy3 * vy4) != 0 && (vx4 * vx1 + vy4 * vy1) != 0)
 	{
 		printf("Not a Rectangle\n");
 		double vm1 = sqrt(vx1 * vx1 + vy1 * vy1);
@@ -77,6 +77,10 @@ char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, i
 		result = "Not a Rectangle";
 		return result;
 	}
-	result = "Error, somethign went wrong";
-	return result;
+	else
+	{
+		result = "Error, something went wrong.";
+		return result;
+	}
+	
 }
