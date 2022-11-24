@@ -2,22 +2,16 @@
 
 #include <stdio.h>
 #include <math.h>
-int anglesoftriangle(side1, side2, side3)
+void anglesoftriangle(double a, double b, double c)
 {
-	float s, angleA, angleB, angleC, pi, R, area;
-    pi = acos(-1);
+    double A, B, C;
+    double angleA, angleB, angleC;
+    A = ((a * a) + (b * b) - (c * c)) / 2*(a*b);
+    B = ((b * b) + (c * c) - (a * a)) / 2*(b*c);
+    C = ((c * c) + (a * a) - (b * b)) / 2*(a*c);
 
-    
-    s = (side1 + side2 + side3) / 2;
-    area = sqrt(s * (s - side1) * (s - side2) * (s - side3));
-
-    R = (side1 *side2 * side3) / (4 * area);
-
-    angleA = (180 / pi) * asin(side1 / 2 * R);
-    angleB = (180 / pi) * asin(side2 / 2 * R);
-    angleC = (180 / pi) * asin(side3 / 2 * R);
-
-    printf("%.2f %.2f %.2f", angleA, angleB, angleC);
-    return 0;
-
+    angleA = acos(A);
+    printf("%lf", angleA);
+    printf("lf", angleB);
+    printf("lf", angleC);
 }
