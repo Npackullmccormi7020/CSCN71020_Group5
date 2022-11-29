@@ -5,6 +5,8 @@ extern "C" char* analyzeTriangle(int side1, int side2, int side3);
 
 extern "C" char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
 
+extern "C" void isTriangle(double, double, double);
+
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -157,10 +159,12 @@ namespace Tests
 			Assert::AreEqual("Not a Rectangle", result);
 
 
-			// last test: Fail
+			/* Fix (kahan) : Found that Instead of keeping the "2nd if condition" (in rectangleSolver.c/ analyzeRectangle())
+			in && (AND) relation, keep it in || (OR) relation 
+			(Now fixed, refer rectangleSolver.c)
+			*/
 
-			/* suggested fix (kahan) : Instead of keeping the "2nd if condition" (in rectangleSolver.c/ analyzeRectangle())
-			in && (AND) relation, keep it in || (OR) relation */
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(NOTValid_rectangle2)
@@ -169,14 +173,92 @@ namespace Tests
 			result = analyzeRectangle(0, 0, 1, 0, 2, 0, 0, -1);
 			Assert::AreEqual("Not a Rectangle", result);
 
-
-			// last test: Fail
-
 			/*
-			Same as "NOTValid_rectangle2"
+			Also fixed, same as NOTValid_rectangle1 test
 			*/
+
+			// last test: Passed! \o/
 		}
 
+	};
+
+	// ISSUE (Kahan) : YET TO RUN PROPER TESTS, need to modify the function of isTriangle() to run tests.
+	TEST_CLASS(isTriangle_Tests)
+	{
+	public:
+
+
+		TEST_METHOD(Valid_triangle1)
+		{
+			char* result = "";
+			isTriangle(3, 2, 1);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(Valid_triangle2)
+		{
+			char* result = "";
+			isTriangle(2, 3, 1);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(Valid_triangle3)
+		{
+			char* result = "";
+			isTriangle(1, 2, 3);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(Valid_triangle4)
+		{
+			char* result = "";
+			isTriangle(3, 5, 4);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(Valid_triangle5)
+		{
+			char* result = "";
+			isTriangle(1, 1, 1);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(NOTValid_triangle1)
+		{
+			char* result = "";
+			isTriangle(4, 2, 1);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(NOTValid_triangle2)
+		{
+			char* result = "";
+			isTriangle(1, 4, 2);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
+
+		TEST_METHOD(NOTValid_triangle3)
+		{
+			char* result = "";
+			isTriangle(1, 2, 4);
+			Assert::AreEqual("", result);
+
+			// last test:
+		}
 	};
 
 	TEST_CLASS(OtherTests)
