@@ -24,7 +24,10 @@ int main() {
 			double* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			isTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]); // (GIRISH) : called the function of isTriangle in main
+			char* istriangle = "";
+			isTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2], istriangle);
+			// (GIRISH) : called the function of isTriangle in main
+			// Change (Kahan) : modified as per the new definition.
 			anglesoftriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
