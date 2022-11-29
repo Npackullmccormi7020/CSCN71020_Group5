@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="anglesoftriangle.c" />
+    <ClCompile Include="isTriangle.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="rectangleSolver.c" />
     <ClCompile Include="triangleSolver.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="anglesoftriangle.h" />
+    <ClInclude Include="isTriangle.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="rectangleSolver.h" />
     <ClInclude Include="triangleSolver.h" />
