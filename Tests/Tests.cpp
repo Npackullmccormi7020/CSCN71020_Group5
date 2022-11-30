@@ -5,7 +5,7 @@ extern "C" char* analyzeTriangle(int side1, int side2, int side3);
 
 extern "C" char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
 
-extern "C" void isTriangle(double, double, double);
+extern "C" char* isTriangle(double, double, double);
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -182,7 +182,7 @@ namespace Tests
 
 	};
 
-	// ISSUE (Kahan) : YET TO RUN PROPER TESTS, need to modify the function of isTriangle() to run tests.
+	// ISSUE (RESOLVED) (Kahan) : YET TO RUN PROPER TESTS, need to modify the function of isTriangle() to run tests, now resolved
 	TEST_CLASS(isTriangle_Tests)
 	{
 	public:
@@ -191,73 +191,80 @@ namespace Tests
 		TEST_METHOD(Valid_triangle1)
 		{
 			char* result = "";
-			isTriangle(3, 2, 1);
-			Assert::AreEqual("", result);
+			result = isTriangle(3, 2, 1);
+			Assert::AreEqual("Triangle is possible", result);
 
-			// last test:
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(Valid_triangle2)
 		{
 			char* result = "";
-			isTriangle(2, 3, 1);
-			Assert::AreEqual("", result);
+			result = isTriangle(2, 3, 1);
+			Assert::AreEqual("Triangle is possible", result);
 
-			// last test:
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(Valid_triangle3)
 		{
 			char* result = "";
-			isTriangle(1, 2, 3);
-			Assert::AreEqual("", result);
+			result = isTriangle(1, 2, 3);
+			Assert::AreEqual("Triangle is possible", result);
 
-			// last test:
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(Valid_triangle4)
 		{
 			char* result = "";
-			isTriangle(3, 5, 4);
-			Assert::AreEqual("", result);
+			result = isTriangle(3, 5, 4);
+			Assert::AreEqual("Triangle is possible", result);
 
-			// last test:
+			// last test: Passed! \o/
+
 		}
 
 		TEST_METHOD(Valid_triangle5)
 		{
 			char* result = "";
-			isTriangle(1, 1, 1);
-			Assert::AreEqual("", result);
+			result = isTriangle(1, 1, 1);
+			Assert::AreEqual("Triangle is possible", result);
 
-			// last test:
+			// last test: Passed! \o/
+
 		}
+
+		/*
+		Suggested fix (For the NOTValid_triangle '1,2,3' tests) (Kahan): instead of keeping OR (||) condition in the if statement, 
+		keep AND (&&) condition, reason being that all the conditions are required to be satisfied, and not just one.
+		*/
 
 		TEST_METHOD(NOTValid_triangle1)
 		{
 			char* result = "";
-			isTriangle(4, 2, 1);
-			Assert::AreEqual("", result);
+			result = isTriangle(4, 2, 1);
+			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test:
+			// last test: fail
 		}
 
 		TEST_METHOD(NOTValid_triangle2)
 		{
 			char* result = "";
-			isTriangle(1, 4, 2);
-			Assert::AreEqual("", result);
+			result = isTriangle(1, 4, 2);
+			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test:
+			// last test: fail
 		}
 
 		TEST_METHOD(NOTValid_triangle3)
 		{
 			char* result = "";
-			isTriangle(1, 2, 4);
-			Assert::AreEqual("", result);
+			result = isTriangle(1, 2, 4);
+			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test:
+			// last test: fail
 		}
 	};
 
