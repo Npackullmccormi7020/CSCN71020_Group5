@@ -13,10 +13,10 @@ Revision history:
 void anglesoftriangle(double a, double b, double c)
 {
     double A, B, C;
-    
-    A = ((a * a) + (b * b) - (c * c)) / 2*(a*b);
-    B = ((b * b) + (c * c) - (a * a)) / 2*(b*c);
-    C = ((c * c) + (a * a) - (b * b)) / 2*(a*c);
+
+    A = ((a * a) + (b * b) - (c * c)) / 2 * (a * b);
+    B = ((b * b) + (c * c) - (a * a)) / 2 * (b * c);
+    C = ((c * c) + (a * a) - (b * b)) / 2 * (a * c);
 
     // Change (Kahan) : defined and initialized the doubles for angles.
     double angleA = acos(A);

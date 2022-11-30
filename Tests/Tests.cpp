@@ -275,7 +275,8 @@ namespace Tests
 
 		TEST_METHOD(anglesoftriangle)
 		{
-			// this functionality is being worked upon
+			// this functionality is being worked upon, 
+			// please make the angles in degrees for the convention as well as convinient testing, to begin with.
 		}
 
 	};

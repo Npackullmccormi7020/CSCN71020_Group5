@@ -7,6 +7,14 @@
 #include "anglesoftriangle.h"
 #include "isTriangle.h"
 
+/*
+Revision history:
+2021-06-01: Created by Elliot Coleshill
+2022-11-17: Added function anglesoftriangle() (SrujanReddy)
+2022-11-24: Added function isTriangle() (Girish Bhuteja)
+2022-11-29/2022-11-30: Slight modifications to remove any potential issues (Kahan)
+*/
+
 int side = 0;
 
 int main() {
@@ -65,7 +73,8 @@ double* getTriangleSides(double* triangleSides) {
 	printf_s("Enter the three sides of the triangle: ");
 	for (int i = 0; i < 3; i++)
 	{
-		scanf_s("%d", &triangleSides[i]);
+		scanf_s("%lf", &triangleSides[i]);
+		// Change (Kahan): Rectifying the line of code to take double as input
 	}
 	return triangleSides;
 }

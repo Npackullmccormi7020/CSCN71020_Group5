@@ -1,2 +1,2 @@
 #pragma once
-void anglesoftrinagle(float, float, float);
+void anglesoftriangle(double, double, double);
