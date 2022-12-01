@@ -24,7 +24,7 @@ void anglesoftriangle(double a, double b, double c)
     double angleC = acos(C);
 
     // Change (Kahan) : Just minor change in syntax adjustment to remove obvious error.
-    printf("%lf", angleA);
-    printf("%lf", angleB);
-    printf("%lf", angleC);
+    printf("\n%lf", angleA);
+    printf("\n%lf", angleB);
+    printf("\n%lf", angleC);
 }

@@ -36,7 +36,7 @@ int main() {
 			// (GIRISH) : called the function of isTriangle in main
 			// Change (Kahan) : modified as per the new definition.
 			anglesoftriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
-			printf_s("%s\n", result);
+			printf_s("\n%s\n", result);
 			break;
 		case 0:
 			continueProgram = false;
