@@ -18,13 +18,21 @@ void anglesoftriangle(double a, double b, double c)
     B = ((b * b) + (c * c) - (a * a)) / 2 * (b * c);
     C = ((c * c) + (a * a) - (b * b)) / 2 * (a * c);
 
-    // Change (Kahan) : defined and initialized the doubles for angles.
-    double angleA = acos(A);
-    double angleB = acos(B);
-    double angleC = acos(C);
+    //value in radians
+    double x = acos(A); 
+    //Value in degree
+    double angleA = ((x * 180) * 7) / 22;
+    //value in radians
+    double y = acos(B);
+//value in degree
+    double angleB = ((x * 180) * 7) / 22;
+    //value in radians
+    double z = acos(C);
+    //value in degree
+    double angleC = ((x * 180) * 7) / 22;
 
-    // Change (Kahan) : Just minor change in syntax adjustment to remove obvious error.
-    printf("\n%lf", angleA);
-    printf("\n%lf", angleB);
-    printf("\n%lf", angleC);
+
+    printf("\nAngle A is %lf", angleA);
+    printf("\nAngle B is %lf", angleB);
+    printf("\nAngle C is %lf", angleC);
 }
