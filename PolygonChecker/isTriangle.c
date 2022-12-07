@@ -8,12 +8,14 @@ Revision history:
 2022-11-24: Created by Girish Bhuteja
 2022-11-24: Changed the datatype to double (Girish Bhuteja)
 2022-11-29: Modified to make it possible to test, with change in definition (Kahan)
+2022-12-07: Modified the logic as per the requirements (Kahan)
+
 */
 
 char* isTriangle(double side1, double side2, double side3)
 {
     char* statement = "";
-    if ((side1 + side2) >= side3 && (side2 + side3) >= side1 && (side3 + side1) >= side2)
+    if ((side1 + side2) > side3 && (side2 + side3) > side1 && (side3 + side1) > side2)
     {
         statement = "Triangle is possible";
         printf("\n%s", statement);
