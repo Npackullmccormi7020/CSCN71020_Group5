@@ -236,8 +236,9 @@ namespace Tests
 		}
 
 		/*
-		Suggested fix (For the NOTValid_triangle '1,2,3' tests) (Kahan): instead of keeping OR (||) condition in the if statement, 
+		fix (For the NOTValid_triangle '1,2,3' tests) (Kahan): instead of keeping OR (||) condition in the if statement, 
 		keep AND (&&) condition, reason being that all the conditions are required to be satisfied, and not just one.
+		, now fixed!
 		*/
 
 		TEST_METHOD(NOTValid_triangle1)
@@ -246,7 +247,7 @@ namespace Tests
 			result = isTriangle(4, 2, 1);
 			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test: fail
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(NOTValid_triangle2)
@@ -255,7 +256,7 @@ namespace Tests
 			result = isTriangle(1, 4, 2);
 			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test: fail
+			// last test: Passed! \o/
 		}
 
 		TEST_METHOD(NOTValid_triangle3)
@@ -264,7 +265,7 @@ namespace Tests
 			result = isTriangle(1, 2, 4);
 			Assert::AreEqual("Triangle is not possible", result);
 
-			// last test: fail
+			// last test: Passed! \o/
 		}
 	};
 
@@ -276,7 +277,12 @@ namespace Tests
 		TEST_METHOD(anglesoftriangle)
 		{
 			// this functionality is being worked upon, 
-			// please make the angles in degrees for the convention as well as convinient testing, to begin with.
+			/*
+			SUGGESTED(kahan), FIXED(SrujanReddy) : 
+			please make the angles in degrees for the convention as well as convinient testing, 
+			to begin with., now fixed!
+			*/
+			// please make some return type other than void, in order to actually run meaningful tests, this is not for the functionality but the testing process
 		}
 
 	};
