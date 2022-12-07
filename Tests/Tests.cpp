@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
-extern "C" char* analyzeTriangle(int side1, int side2, int side3);
+extern "C" char* analyzeTriangle(double side1, double side2, double side3);
 
 extern "C" char* analyzeRectangle(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
 
 extern "C" char* isTriangle(double, double, double);
+
+extern "C" double* anglesoftriangle(double, double, double);
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -188,34 +190,8 @@ namespace Tests
 	public:
 
 
+
 		TEST_METHOD(Valid_triangle1)
-		{
-			char* result = "";
-			result = isTriangle(3, 2, 1);
-			Assert::AreEqual("Triangle is possible", result);
-
-			// last test: Passed! \o/
-		}
-
-		TEST_METHOD(Valid_triangle2)
-		{
-			char* result = "";
-			result = isTriangle(2, 3, 1);
-			Assert::AreEqual("Triangle is possible", result);
-
-			// last test: Passed! \o/
-		}
-
-		TEST_METHOD(Valid_triangle3)
-		{
-			char* result = "";
-			result = isTriangle(1, 2, 3);
-			Assert::AreEqual("Triangle is possible", result);
-
-			// last test: Passed! \o/
-		}
-
-		TEST_METHOD(Valid_triangle4)
 		{
 			char* result = "";
 			result = isTriangle(3, 5, 4);
@@ -225,7 +201,27 @@ namespace Tests
 
 		}
 
-		TEST_METHOD(Valid_triangle5)
+		TEST_METHOD(Valid_triangle2)
+		{
+			char* result = "";
+			result = isTriangle(3, 4, 5);
+			Assert::AreEqual("Triangle is possible", result);
+
+			// last test: Passed! \o/
+
+		}
+
+		TEST_METHOD(Valid_triangle3)
+		{
+			char* result = "";
+			result = isTriangle(5, 3, 4);
+			Assert::AreEqual("Triangle is possible", result);
+
+			// last test: Passed! \o/
+
+		}
+
+		TEST_METHOD(Valid_triangle4)
 		{
 			char* result = "";
 			result = isTriangle(1, 1, 1);
@@ -267,22 +263,91 @@ namespace Tests
 
 			// last test: Passed! \o/
 		}
+
+		TEST_METHOD(NOTValid_triangle4)
+		{
+			char* result = "";
+			result = isTriangle(3, 2, 1);
+			Assert::AreEqual("Triangle is not possible", result);
+
+			// last test: Passed! \o/
+		}
+
+		TEST_METHOD(NOTValid_triangle5)
+		{
+			char* result = "";
+			result = isTriangle(2, 3, 1);
+			Assert::AreEqual("Triangle is not possible", result);
+
+			// last test: Passed! \o/
+		}
+
+		TEST_METHOD(NOTValid_triangle6)
+		{
+			char* result = "";
+			result = isTriangle(1, 2, 3);
+			Assert::AreEqual("Triangle is not possible", result);
+
+			// last test: Passed! \o/
+		}
 	};
 
-	TEST_CLASS(OtherTests)
+	TEST_CLASS(anglesoftriangle_tests)
 	{
 	public:
 
+		/*
 
-		TEST_METHOD(anglesoftriangle)
+		SUGGESTED(kahan), FIXED(SrujanReddy) :
+		* please make the angles in degrees for the convention as well as convinient testing,
+		to begin with., now fixed!
+
+		* please make some return type other than void, in order to actually run meaningful tests,
+		this is not for the functionality but the testing process, now fixed!
+
+		*/
+
+
+		TEST_METHOD(ALLEQUAL_test1)
 		{
-			// this functionality is being worked upon, 
-			/*
-			SUGGESTED(kahan), FIXED(SrujanReddy) : 
-			please make the angles in degrees for the convention as well as convinient testing, 
-			to begin with., now fixed!
-			*/
-			// please make some return type other than void, in order to actually run meaningful tests, this is not for the functionality but the testing process
+			double* result = anglesoftriangle(3, 3, 3);
+			double* expected = anglesoftriangle(1, 2, 3);
+			expected[0] = 60.0;
+			expected[1] = 60.0;
+			expected[2] = 60.0;
+
+			Assert::AreEqual(expected, result);
+
+			// last test: Passed! \o/
+
+		}
+
+		TEST_METHOD(TWOSEQUAL_test2)
+		{
+			double* result = anglesoftriangle(0.57735, 0.57735, 1);
+			double* expected = anglesoftriangle(1, 2, 3);
+			expected[0] = 30.0;
+			expected[1] = 30.0;
+			expected[2] = 120.0;
+
+			Assert::AreEqual(expected, result);
+
+			// last test: Passed! \o/
+
+		}
+
+		TEST_METHOD(ALLDIFFERENT_test3)
+		{
+			double* result = anglesoftriangle(1, 2, 1.732050);
+			double* expected = anglesoftriangle(1, 2, 3);
+			expected[0] = 30.0;
+			expected[1] = 60.0;
+			expected[2] = 90.0;
+
+			Assert::AreEqual(expected, result);
+
+			// last test: Passed! \o/
+
 		}
 
 	};
