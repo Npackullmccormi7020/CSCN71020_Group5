@@ -23,6 +23,7 @@ int main() {
 		printWelcome();
 
 		int shapeChoice = printShapeMenu();
+		double* TriangleAngles;
 
 		switch (shapeChoice)
 		{
@@ -35,7 +36,7 @@ int main() {
 			char* istriangle = isTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			// (GIRISH) : called the function of isTriangle in main
 			// Change (Kahan) : modified as per the new definition.
-			anglesoftriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			TriangleAngles = anglesoftriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("\n%s\n", result);
 			break;
 		case 0:
