@@ -13,6 +13,7 @@ Revision history:
 2022-11-17: Added function anglesoftriangle() (SrujanReddy)
 2022-11-24: Added function isTriangle() (Girish Bhuteja)
 2022-11-29/2022-11-30: Slight modifications to remove any potential issues (Kahan)
+2022-12-01: Touch-up and completed additions to main.c (Nick)
 */
 
 int side = 0;
